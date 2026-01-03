@@ -15,6 +15,10 @@ A Clínica Médica Life oferece uma variedade de especialidades médicas com o o
 - **HTML5**: Estrutura semântica e organizada.
 - **CSS3**: Estilização moderna, uso de Flexbox para layouts, design responsivo (Mobile First) e animações suaves.
 
+## 🌐 Deploy
+
+Acesse o projeto online: [Clínica Médica Life - Demo](https://clinica-seven-delta.vercel.app/index.html)
+
 ## 🖼️ Telas do Projeto
 
 Abaixo estão prévias das páginas principais do site:
@@ -22,12 +26,12 @@ Abaixo estão prévias das páginas principais do site:
 ### Home
 
 A página inicial apresenta a clínica, visão geral e informações rápidas.
-![Página Inicial](./assets/home_preview.png)
+![Página Inicial](./assets/recepcao.png)
 
 ### Especialidades
 
 Página dedicada a listar as especialidades, com tabelas de horários dos médicos.
-![Página de Especialidades](./assets/especialidades_preview.png)
+![Página de Especialidades](./assets/medico.jpg)
 
 ## 👨‍💻 Desenvolvedor
 
