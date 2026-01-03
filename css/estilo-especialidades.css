@@ -15,73 +15,98 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  gap: 15px;
+  margin-top: 30px;
   text-align: center;
 }
 
 .link-especialidade {
   text-decoration: none;
-  color: #000;
-  border-bottom: 2px solid #00cad1;
-  margin: 0 10px 10px;
-  font-size: 18px;
+  color: #00cad1;
+  background: white;
+  border: 2px solid #00cad1;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .link-especialidade:hover {
-  color: #0d6e71;
+  background-color: #00cad1;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 202, 209, 0.3);
 }
 
 .box-tabela-especialista {
   display: flex;
-  height: 240px;
-  padding: 0 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin: 0 20px 40px; /* Nice bottom spacing */
+  min-height: 250px;
 }
 
 .box-tabela-especialista img {
-  width: 30%;
-  height: 100%;
+  width: 35%;
+  object-fit: cover;
 }
 
 .tabela-especialistas {
   border-spacing: 0;
   text-align: left;
-  width: 70%;
-  height: 100%;
+  width: 65%;
+  padding: 20px;
 }
 
 .tabela-especialistas thead tr {
-  background-color: #00cad1;
-  color: #fff;
+  background-color: transparent;
+  color: #0d6e71;
+  border-bottom: 2px solid #eee;
+}
+.tabela-especialistas th {
+  padding: 15px 10px;
+  font-size: 1.1em;
+  text-transform: uppercase;
 }
 
 .tabela-especialistas tr {
-  background-color: #f1f1f1;
-  color: #585757;
+  background-color: transparent;
+  color: #555;
   font-weight: 500;
+  transition: background 0.2s;
 }
 
-.tabela-especialistas tbody tr:nth-of-type(2n + 1) {
-  background-color: #cdcdcd;
-  border: 1px solid #f1f1f1;
+.tabela-especialistas tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+.tabela-especialistas tbody tr:last-child {
+  border-bottom: none;
+}
+.tabela-especialistas tbody tr:hover {
+  background-color: #f9f9f9;
 }
 
 .tabela-especialistas th,
 .tabela-especialistas td {
-  padding: 10px;
+  padding: 12px 10px;
 }
 
 @media (max-width: 768px) {
+  .box-tabela-especialista {
+    flex-direction: column;
+    height: auto;
+  }
   .box-tabela-especialista img {
-    display: none;
+    width: 100%;
+    height: 200px;
   }
 
   .tabela-especialistas {
     width: 100%;
-  }
-
-  .box-tabela-especialista {
-    height: auto;
-    justify-content: center;
+    padding: 10px;
   }
 }
 

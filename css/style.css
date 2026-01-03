@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Source Sans Pro", sans-serif;
@@ -6,11 +10,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #f9f9f9; /* Off-white background for less harsh contrast */
+  color: #333;
+  line-height: 1.6;
 }
 
 main {
-  color: #0000008c;
   margin-bottom: 60px;
 }
 .container {
@@ -18,27 +23,36 @@ main {
   margin: 0 auto;
 }
 .container-titulo {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 700px;
+  margin: 0 auto 40px; /* More spacing below title */
   text-align: center;
 }
 .container-titulo h2,
 .container-titulo h3 {
-  margin: 0;
+  margin: 0 0 10px;
+  color: #0d6e71; /* Brand color key */
+}
+.container-titulo p {
+  color: #666;
+  font-size: 1.1em;
 }
 
 /* Início CSS Topo */
 .topo {
   background-color: #00cad1;
   width: 100%;
+  position: sticky; /* Sticky header */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 .topo .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 60px;
-  padding: 0 10px;
+  height: 70px; /* Fixed height */
+  padding: 0 20px;
   margin: 0 auto;
 }
 
@@ -55,33 +69,53 @@ main {
 }
 
 .topo-logo {
-  height: 60px;
+  height: 50px; /* Slightly smaller for better proportion */
+  transition: transform 0.3s;
+}
+.topo-logo:hover {
+  transform: scale(1.05);
 }
 
 .topo-links {
   display: flex;
+  gap: 20px;
 }
 .topo-link {
-  padding: 10px;
+  position: relative;
+  padding: 10px 0;
   text-decoration: none;
   color: #fff;
   font-weight: 600;
+  transition: color 0.3s;
 }
-.topo-link:hover {
-  color: #004b4c;
+.topo-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 5px;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s;
+}
+.topo-link:hover::after {
+  width: 100%;
 }
 
 @media (max-width: 425px) {
   .topo .container {
     flex-direction: column;
+    height: auto;
+    padding: 10px;
   }
   .topo-titulo {
     margin: 10px 0;
   }
   .topo-links {
     width: 100%;
-    border-top: 1px solid #009fa5;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     justify-content: space-around;
+    padding-top: 10px;
   }
 }
 /* Fim CSS Topo */
@@ -90,84 +124,142 @@ main {
 footer {
   background-color: #0d6e71;
   color: #fff;
-  padding: 20px;
+  padding: 40px 20px;
 }
 footer .container {
   text-align: center;
+}
+footer p {
+  margin: 5px 0;
+  font-size: 0.95em;
+  opacity: 0.9;
 }
 /* Fim CSS Rodapé */
 
 #sobre,
 #especialidades,
 #contato {
-  padding: 40px 20px 0;
+  padding: 60px 20px; /* More breathing room */
 }
 
 .box-visao-geral {
   position: relative;
-  background-image: url("../assets/recepcao.png");
+  /* Add overlay gradient for text readability and premium look */
+  background: linear-gradient(rgba(0, 50, 60, 0.6), rgba(0, 50, 60, 0.6)),
+    url("../assets/recepcao.png");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   width: 100%;
-  height: 500px;
-}
-.box-visao-geral-titulo {
-  height: 100%;
-  color: #fff;
-  padding: 10px;
+  height: 550px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.box-visao-geral-titulo {
+  color: #fff;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
 }
 .box-visao-geral h1 {
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
-  font-size: 38px;
+  font-size: 48px;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
 }
 
 .box-sobre {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 40px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 .box-sobre h3 {
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
+  color: #0d6e71;
+  margin-bottom: 20px;
 }
 .box-sobre img {
-  height: 250px;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.box-sobre ul {
+  list-style: none;
+  padding: 0;
+}
+.box-sobre ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+.box-sobre ul li::before {
+  content: "✔";
+  color: #00cad1;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
 
 .box-especialidades {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 .box-especialidade {
-  border-radius: 3px;
-  box-shadow: 0px 1px 10px rgb(0 0 0 / 50%);
-  margin: 20px;
-  width: calc(100% / 3 - 40px);
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin: 0; /* Clear margin, use gap */
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box-especialidade:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 .box-especialidade img {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 .box-especialidade figcaption {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   text-transform: uppercase;
+  font-weight: 600;
+  color: #0d6e71;
 }
 
 .box-link-horarios {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .link-horarios {
   background-color: #00cad1;
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 10px 20px;
+  padding: 15px 35px;
   text-decoration: none;
+  border-radius: 30px; /* Pill shape */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  display: inline-block;
+}
+.link-horarios:hover {
+  background-color: #009fa5;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 202, 209, 0.4);
 }
 
 @media (max-width: 1024px) {
